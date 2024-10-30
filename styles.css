@@ -1,0 +1,283 @@
+/* General Styles */
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    overflow: hidden;
+    min-height: 100vh; /* Ensure full height */
+    /* Default background can be set to the sunset colors */
+    background: linear-gradient(120deg, #FFB74D, #FF7043, #F06292, #BA68C8); /* Sunset colors */
+    /* Responsive Border */
+    border: 1vw solid rgba(255, 255, 255, 0.3); /* Scales border based on viewport width */
+    box-shadow: 0 0 2vw rgba(0, 0, 0, 0.2), 0 0 4vw rgba(0, 0, 0, 0.1); /* Scales shadow with screen size */
+    border-radius: 2vw; /* Scales rounded corners with screen size */
+    box-sizing: border-box; /* Ensure padding/border fits within the viewport */
+}
+
+/* Sunset Theme */
+.sunset-theme {
+    color: #fff;
+    text-align: center;
+}
+
+.middle-theme {
+    background: linear-gradient(120deg, #3E2723, #BF360C, #F57C00, #FF8A65, #D32F2F);
+    color: #fff; /* Keep text color white for contrast */
+    text-align: center;
+}
+
+/* Darker Theme for page1.html */
+.moonlight-theme {
+    background: linear-gradient(120deg, #2C2A54, #4B4A84, #7070B2, #8B8CC2); /* Darker sunset to moonlight colors */
+    color: #fff; /* White text for better contrast */
+}
+
+.content {
+    padding: 20vh 10%;
+    max-width: 600px; /* Limit the width of content */
+    margin: 0 auto; /* Center the content horizontally */
+    text-align: left; /* Align text to the left */
+}
+
+.header {
+    display: flex; /* Use flexbox for header layout */
+    align-items: center; /* Center items vertically */
+}
+
+.title-image {
+    width: 50px; /* Set a reasonable width for the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* Space between image and title */
+}
+
+h1 {
+    font-size: 3em; /* Title size */
+    margin-bottom: 0.5em; /* Space below the title */
+}
+
+p {
+    font-size: 1.2em; /* Smaller size for paragraphs */
+    line-height: 1.5; /* Increase line height for readability */
+    opacity: 0.9; /* Slightly transparent */
+    margin-bottom: 15px; /* Space between paragraphs */
+}
+
+/* Flower Navigation Arrows */
+.flower-navigation {
+    position: fixed;
+    bottom: 20px; /* Adjust if necessary */
+    right: 20px; /* Adjust if necessary */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow {
+    display: inline-flex; /* Aligns the arrows */
+    align-items: center;
+    justify-content: center;
+    font-size: 2em; /* Adjust size if needed */
+    color: #000; /* Black color */
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+    .arrow:hover {
+        transform: scale(1.2);
+    }
+
+/* Adjust positioning as needed */
+.arrow-left {
+    transform: translateX(-10px);
+}
+
+.arrow-right {
+    transform: translateX(10px);
+}
+
+/* Button Styles */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff69b4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+    .button:hover {
+        background-color: #ff1493;
+    }
+
+/* Message Display */
+#message {
+    margin-top: 1em;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+/* Flower Traits */
+.flower-traits {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+.flower {
+    font-size: 2em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+    .flower:hover {
+        transform: scale(1.2);
+    }
+
+.particles img {
+    position: absolute;
+    width: 2vw; /* Size of the particles */
+    opacity: 0.3;
+    animation: blow 10s linear infinite; /* Change from float to blow */
+}
+
+/* Update the keyframes for blowing effect */
+@keyframes blow {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-10vh) translateX(100vw) scale(1.2); /* Drift upward while moving to the right */
+    }
+
+    100% {
+        transform: translateY(0) translateX(100vw) scale(1); /* Move off-screen on the right */
+    }
+}
+
+/* Decorative Image for Title */
+.title-image {
+    width: 5vw; /* Adjust size as needed */
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5vw; /* Spacing between image and title */
+}
+
+#message {
+    margin-top: 1em;
+    font-size: 1.2em;
+    color: #fff;
+    width: 100%; /* Ensures alignment takes full width */
+}
+
+.star-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1; /* Ensures stars stay in the background */
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.8); /* Soft white */
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Larger glow */
+    animation: floatUp 10s linear infinite, twinkle 1.5s infinite ease-in-out, shimmer 5s infinite;
+}
+
+/* Float up slowly */
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh); /* Start off-screen at bottom */
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-10vh); /* Move off-screen at top */
+        opacity: 0;
+    }
+}
+
+/* Twinkle animation for subtle brightness change */
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Cloud container for organization */
+.cloud-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -2; /* Keep clouds behind stars */
+}
+
+.cloud {
+    position: absolute;
+    width: 30vw; /* Size can vary for visual interest */
+    height: auto;
+    opacity: 0.2; /* Soft transparency for nighttime effect */
+    animation: drift 30s linear infinite; /* Long, slow drift */
+}
+
+/* Drift animation moving horizontally */
+@keyframes drift {
+    0% {
+        transform: translateX(-50vw);
+    }
+
+    100% {
+        transform: translateX(150vw);
+    }
+}
+
+/* Center the video */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0d0d2b; /* Dark background for cinematic effect */
+    overflow: hidden;
+}
+
+/* Video styling */
+video {
+    max-width: 80vw;
+    max-height: 80vh;
+    border: 3px solid #ffffff33; /* Soft border matching theme */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Subtle glow effect */
+}
+
+/* Style for the warning text */
+.warning-text {
+    margin-top: 15px; /* Space between video and text */
+    font-size: 1.2em;
+    color: #ff4d4d; /* Light red for warning effect */
+    text-align: center;
+    opacity: 0.8;
+}
+
